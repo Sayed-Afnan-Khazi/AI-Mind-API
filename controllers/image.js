@@ -1,14 +1,14 @@
 const handleApiCall = () => (req,res) => {
 	// PAT (Personal Access Token) can be found in the portal under Authentication
-    const PAT = '07d0e7d6b128428a947075281a0c94d5';
+    const PAT = process.env.CLARIFAI_PAT;
     // Specify the correct user_id/app_id pairings
     // Since you're making inferences outside your app's scope
-    const USER_ID = 'facebook';       
-    const APP_ID = 'image-classification';
+    const USER_ID = process.env.CLARIFAI_USER_ID;       
+    const APP_ID = process.env.CLARIFAI_APP_ID;
     // Model and image URL you want to use
-    const MODEL_ID = 'general-image-recognition-deit-base';
-    const MODEL_VERSION_ID = 'bdfdeb4a60624bce90a4183bf40a69fa'; 
-    const IMAGE_URL = req.body.input; // React setState quirk we should be vary of.
+    const MODEL_ID = 'face-detection'; 
+    const IMAGE_URL = req.body.input; // React setState quirk we should be vary of. setState is async.
+    // https://medium.com/geekculture/react-setstate-its-async-nature-bc6bcd78eebd
 
     ///////////////////////////////////////////////////////////////////////////////////
     // YOU DO NOT NEED TO CHANGE ANYTHING BELOW THIS LINE TO RUN THIS EXAMPLE
@@ -54,8 +54,7 @@ const handleImage = (db) => (req,res) => {
 	.then(entries=> {
 		res.status(200).json(entries[0].entries);
 	})
-	// .catch(err=>res.status(400).json('Unable to increment entries.'));
-    .catch(err=>console.log(err));
+	.catch(err=>res.status(400).json('Unable to increment entries.'));
 }
 
 module.exports = {

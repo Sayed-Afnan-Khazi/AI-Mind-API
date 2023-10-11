@@ -2,31 +2,31 @@ const express = require('express');
 const cors = require('cors');
 const bcrypt = require('bcrypt');
 
-// const db = require('knex')({
-//   client: 'pg',
-//   connection: {
-//   	connectionString: process.env.PG_CONNECTION_STRING,
-//     host : process.env.PG_HOST, //Localhost
-//     ssl: {rejectUnauthorized: false },
-//     port : process.env.PG_PORT,
-//     user : process.env.PG_USER,
-//     password : process.env.PG_PASSWORD,
-//     database : process.env.PG_DATABASE
-//   }
-// });
-
 const db = require('knex')({
   client: 'pg',
   connection: {
-    // connectionString: process.env.PG_CONNECTION_STRING,
-    host : '127.0.0.1', //Localhost
-    // ssl: {rejectUnauthorized: false },
-    port : 5432,
-    user : 'afnan',
-    password : '',
-    database : 'ai-mind',
+  	connectionString: process.env.PG_CONNECTION_STRING,
+    host : process.env.PG_HOST, //Localhost
+    ssl: {rejectUnauthorized: false },
+    port : process.env.PG_PORT,
+    user : process.env.PG_USER,
+    password : process.env.PG_PASSWORD,
+    database : process.env.PG_DATABASE
   }
 });
+
+// const db = require('knex')({
+//   client: 'pg',
+//   connection: {
+//     // connectionString: process.env.PG_CONNECTION_STRING,
+//     host : '127.0.0.1', //Localhost
+//     // ssl: {rejectUnauthorized: false },
+//     port : 5432,
+//     user : 'afnan',
+//     password : '',
+//     database : 'ai-mind',
+//   }
+// });
 
 // Grabbing our controllers:
 const register = require('./controllers/register');

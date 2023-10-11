@@ -77,6 +77,6 @@ app.put('/image',image.handleImage(db))
 app.post('/clarifai',image.handleApiCall())
 
 
-app.listen(3000,()=> {
+app.listen(5000,()=> {
 	console.log('The AI-Mind-API server has started.')
 })

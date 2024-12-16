@@ -38,7 +38,7 @@ const image = require('./controllers/image');
 
 // Testing db
 
-// db.select('*').from('users').then(data=>console.log(data));
+db.select('*').from('users').then(data=>console.log(data));
 
 /* API Design
 

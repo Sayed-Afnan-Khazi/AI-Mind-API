@@ -3,6 +3,7 @@ const cors = require('cors');
 const bcrypt = require('bcrypt');
 require('dotenv').config();
 
+console.log(process.env.PG_CONNECTION_STRING);
 const db = require('knex')({
   client: 'pg',
   connection: {

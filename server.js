@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const bcrypt = require('bcrypt');
+require('dotenv').config();
 
 const db = require('knex')({
   client: 'pg',
@@ -77,6 +78,6 @@ app.put('/image',image.handleImage(db))
 app.post('/clarifai',image.handleApiCall())
 
 
-app.listen(5000,()=> {
+app.listen(5003,()=> {
 	console.log('The AI-Mind-API server has started.')
 })

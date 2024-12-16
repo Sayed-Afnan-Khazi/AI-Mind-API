@@ -3,17 +3,16 @@ const cors = require('cors');
 const bcrypt = require('bcrypt');
 require('dotenv').config();
 
-console.log(process.env.PG_CONNECTION_STRING);
 const db = require('knex')({
   client: 'pg',
   connection: {
-  	connectionString: process.env.PG_CONNECTION_STRING,
-    host : process.env.PG_HOST, //Localhost
+    host : process.env.PG_HOST, 
     ssl: {rejectUnauthorized: false },
     port : process.env.PG_PORT,
     user : process.env.PG_USER,
     password : process.env.PG_PASSWORD,
-    database : process.env.PG_DATABASE
+    database : process.env.PG_DATABASE,
+    pool_mode: 'session'
   }
 });
 
